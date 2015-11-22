@@ -1,2 +1,2 @@
 # android
-Repositório para armazenar projetos em android
+Repositório para armazenar projetos para Android.
