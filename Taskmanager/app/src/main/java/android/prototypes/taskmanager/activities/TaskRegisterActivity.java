@@ -23,6 +23,12 @@ public class TaskRegisterActivity extends AppCompatActivity {
     private DatePickerFragment datePickerFragment;
     private TaskDAO taskDAO;
     private SearchCEPService searchCEPService;
+    private int taskId = 0;
+
+    public TaskRegisterActivity() {
+        taskDAO = new TaskDAO();
+        taskDAO.setContext(this);
+    }
 
     public void saveTask(View view) {
 
@@ -30,16 +36,18 @@ public class TaskRegisterActivity extends AppCompatActivity {
         EditText inputTitle = (EditText) findViewById(R.id.inputTitle);
         EditText inputDescription = (EditText) findViewById(R.id.inputDescription);
 
-        task.setId((int) new Date(System.currentTimeMillis()).getTime());
         task.setDueDate(datePickerFragment.getDueDate());
         task.setTitle(inputTitle.getText().toString());
         task.setDescription(inputDescription.getText().toString());
         task.setLocality(searchCEPService.getLocation().getLocality());
 
-        // Save in database:
-        taskDAO = new TaskDAO();
-        taskDAO.setContext(this);
-        taskDAO.create(task);
+        if (taskId == 0) {
+            taskDAO.create(task);
+        } else {
+            task.setId(taskId);
+            taskDAO.update(task);
+        }
+
         finish();
     }
 
@@ -60,6 +68,18 @@ public class TaskRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_register);
+
+        String taskIdStr = getIntent().getExtras().getString("taskId");
+
+        if (!taskIdStr.equals("new")) {
+            taskId = Integer.parseInt(taskIdStr);
+            TaskEntity task = taskDAO.get(taskId);
+            EditText title = (EditText) findViewById(R.id.inputTitle);
+            EditText description = (EditText) findViewById(R.id.inputDescription);
+            title.setText(task.getTitle());
+            description.setText(task.getDescription());
+        }
+
     }
 
     @Override

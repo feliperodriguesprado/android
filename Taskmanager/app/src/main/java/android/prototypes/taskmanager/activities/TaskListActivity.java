@@ -32,6 +32,12 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        setTaskList();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_task_list, menu);
@@ -75,12 +81,17 @@ public class TaskListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TaskEntity taskInList = (TaskEntity) listView.getItemAtPosition(position);
                 Toast.makeText(getApplicationContext(), Integer.toString(taskInList.getId()), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(TaskListActivity.this, TaskRegisterActivity.class);
+                intent.putExtra("taskId", Integer.toString(taskInList.getId()));
+                startActivity(intent);
+
             }
         });
     }
 
     public void newTask(View view) {
         Intent intent = new Intent(TaskListActivity.this, TaskRegisterActivity.class);
+        intent.putExtra("taskId", "new");
         startActivity(intent);
     }
 }
