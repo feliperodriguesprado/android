@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class HTTPUtil {
 
-    public static String get (String urlStr) {
+    public String get (String urlStr) {
 
         URL url;
         URLConnection urlConnection;

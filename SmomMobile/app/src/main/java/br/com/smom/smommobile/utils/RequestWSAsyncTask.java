@@ -3,12 +3,13 @@ package br.com.smom.smommobile.utils;
 import android.content.Context;
 import android.os.AsyncTask;
 
-public class ServiceUtil extends AsyncTask<String, Void, String> {
+public class RequestWSAsyncTask extends AsyncTask<String, Void, String> {
 
     private Context context;
+    private HTTPUtil httpUtil = new HTTPUtil();
     private String result;
 
-    public ServiceUtil(Context context) {
+    public RequestWSAsyncTask(Context context) {
         this.context = context;
     }
 
@@ -23,9 +24,11 @@ public class ServiceUtil extends AsyncTask<String, Void, String> {
         }
 
         if (params[0].equals("GET")) {
-            contentResponseGET = HTTPUtil.get(url);
+            contentResponseGET = httpUtil.get(url);
         }
 
+        setResult(contentResponseGET);
+        cancel(true);
         return contentResponseGET;
     }
 
@@ -36,14 +39,14 @@ public class ServiceUtil extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        this.result = result;
+        setResult(result);
     }
 
     public String getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    private void setResult(String result) {
         this.result = result;
     }
 }

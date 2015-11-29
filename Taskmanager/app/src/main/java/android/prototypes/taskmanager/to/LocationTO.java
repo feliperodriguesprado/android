@@ -15,8 +15,8 @@ public class LocationTO {
     @SerializedName(value = "localidade")
     private String locality;
     private String uf;
-    private String ibge;
-    private String gia;
+    //private String ibge;
+    //private String gia;
 
     public LocationTO() {
     }
@@ -69,7 +69,7 @@ public class LocationTO {
         this.uf = uf;
     }
 
-    public String getIbge() {
+    /*public String getIbge() {
         return ibge;
     }
 
@@ -83,5 +83,5 @@ public class LocationTO {
 
     public void setGia(String gia) {
         this.gia = gia;
-    }
+    }*/
 }
