@@ -9,7 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.smom.smommobile.R;
@@ -25,6 +27,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         customerController = new CustomerController(getApplicationContext());
         List<CustomerEntity> customerList = customerController.getCustomerList();
 
@@ -33,6 +36,12 @@ public class MainActivity extends Activity {
             System.out.println(customer.getName());
             System.out.println(customer.getCpfCnpj());
         }
+
+        /*ListAdapterItem listaAdapterItem = new ListAdapterItem(this, customerList);
+
+        ListView listView = (ListView) findViewById(R.id.listViewCustumers);
+
+        listView.setAdapter(listaAdapterItem);*/
     }
 
     @Override

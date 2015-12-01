@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.smom.smommobile.R;
 import br.com.smom.smommobile.entities.CustomerEntity;
@@ -18,9 +19,9 @@ import br.com.smom.smommobile.entities.CustomerEntity;
 public class ListAdapterItem extends ArrayAdapter<CustomerEntity>{
 
     private Context context;
-    private ArrayList<CustomerEntity> lista;
+    private List<CustomerEntity> lista;
 
-    public ListAdapterItem(Context context, ArrayList<CustomerEntity> lista) {
+    public ListAdapterItem(Context context, List<CustomerEntity> lista) {
         super(context, 0, lista);
         this.context = context;
         this.lista = lista;
