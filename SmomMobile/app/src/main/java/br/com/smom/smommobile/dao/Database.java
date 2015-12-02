@@ -15,9 +15,22 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // TODO: terminar criação das tabelas:
-        db.execSQL("CREATE TABLE customers (_id INTEGER PRIMARY KEY);");
-        db.execSQL("CREATE TABLE financial (_id INTEGER PRIMARY KEY);");
+        db.execSQL("CREATE TABLE customers (" +
+                "_id INTEGER PRIMARY KEY, " +
+                "name TEXT, " +
+                "cpfCnpj TEXT);");
+
+        db.execSQL("CREATE TABLE releases (" +
+                "_id INTEGER PRIMARY KEY, " +
+                "type INTEGER, " +
+                "peopleId INTEGER, " +
+                "accountId INTEGER, " +
+                "accountTypeId INTEGER, " +
+                "dueDate INTEGER, " +
+                "isPaid INTEGER, " +
+                "description TEXT, " +
+                "value REAL, " +
+                "FOREIGN KEY (peopleId) REFERENCES customers (_id));");
     }
 
     @Override
