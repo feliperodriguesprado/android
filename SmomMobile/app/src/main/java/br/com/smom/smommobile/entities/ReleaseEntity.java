@@ -9,7 +9,6 @@ public class ReleaseEntity {
     private int peopleId;
     private int accountId;
     private int accountTypeId;
-    private Date createDate;
     private Date dueDate;
     private boolean isPaid;
     private String description;
@@ -53,14 +52,6 @@ public class ReleaseEntity {
 
     public void setAccountTypeId(int accountTypeId) {
         this.accountTypeId = accountTypeId;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
     }
 
     public Date getDueDate() {

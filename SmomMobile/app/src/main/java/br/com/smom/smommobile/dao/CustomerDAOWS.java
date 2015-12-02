@@ -21,7 +21,7 @@ public class CustomerDAOWS {
         requestWS = new RequestWSAsyncTask(this.context);
     }
 
-    public List<CustomerEntity> getCustomerList() {
+    public List<CustomerEntity> getList() {
 
         String result;
         Gson gson;
@@ -32,7 +32,6 @@ public class CustomerDAOWS {
         while (!requestWS.isCancelled()) {
             try {
                 Thread.sleep(500);
-                System.out.println(requestWS.getStatus().name());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
