@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.List;
 
 import br.com.smom.smommobile.R;
 import br.com.smom.smommobile.controllers.CustomerController;
 import br.com.smom.smommobile.controllers.ReleasesController;
+import br.com.smom.smommobile.entities.CustomerEntity;
 
 public class MainActivity extends Activity {
 
@@ -19,11 +23,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*ListAdapterItem listaAdapterItem = new ListAdapterItem(this, customerList);
+        customerController = new CustomerController(this);
+
+        List<CustomerEntity> customerList = customerController.getListAll();
+        ListAdapterItem listaAdapterItem = new ListAdapterItem(this, customerList);
 
         ListView listView = (ListView) findViewById(R.id.listViewCustumers);
 
-        listView.setAdapter(listaAdapterItem);*/
+        listView.setAdapter(listaAdapterItem);
 
     }
 

@@ -1,6 +1,7 @@
 package br.com.smom.smommobile.activities;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -30,6 +31,8 @@ public class ListAdapterItem extends ArrayAdapter<CustomerEntity>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         CustomerEntity itemPosicao = this.lista.get(position);
+
+        convertView = LayoutInflater.from(this.context).inflate(R.layout.custumer, null);
 
         TextView textView = (TextView) convertView.findViewById(R.id.txCustumer);
         textView.setText(itemPosicao.getName());
