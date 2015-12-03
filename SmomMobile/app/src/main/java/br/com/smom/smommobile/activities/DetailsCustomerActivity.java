@@ -2,6 +2,7 @@ package br.com.smom.smommobile.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import br.com.smom.smommobile.R;
@@ -20,5 +21,9 @@ public class DetailsCustomerActivity extends AppCompatActivity {
 
         nome.setText(getIntent().getExtras().getString("nome"));
         documento.setText(getIntent().getExtras().getString("documento"));
+    }
+
+    public void voltar(View view){
+        finish();
     }
 }

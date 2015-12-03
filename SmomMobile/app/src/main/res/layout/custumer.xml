@@ -8,6 +8,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
+        android:padding="10dp"
+        android:typeface="serif"
+        android:textSize="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:paddingLeft="70dp"
+        android:paddingRight="0dp"
         android:id="@+id/txCustumer"
          />
 </RelativeLayout>

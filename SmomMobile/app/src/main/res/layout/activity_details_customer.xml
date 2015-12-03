@@ -15,8 +15,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Nome:"
         android:id="@+id/textView"
+        android:typeface="serif"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:paddingLeft="10dp"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -26,6 +28,8 @@
         android:id="@+id/txNomeCusomer"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
+        android:typeface="serif"
+        android:paddingLeft="10dp"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -34,6 +38,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Documento:"
         android:id="@+id/textView2"
+        android:typeface="serif"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
         android:layout_below="@+id/txNomeCusomer"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -44,6 +51,32 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/txDocumentoCustomer"
         android:layout_below="@+id/textView2"
+        android:typeface="serif"
+        android:paddingLeft="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:paddingLeft="10dp"
+        android:id="@+id/btVoltar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="voltar"
+        android:typeface="serif" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalhes Financeiro"
+        android:id="@+id/btFinanceiro"
+        android:paddingLeft="10dp"
+        android:layout_alignTop="@+id/btVoltar"
+        android:layout_toRightOf="@+id/btVoltar"
+        android:layout_toEndOf="@+id/btVoltar"
+        android:typeface="serif" />
 </RelativeLayout>
