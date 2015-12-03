@@ -1,9 +1,13 @@
 package br.com.smom.smommobile.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.List;
@@ -28,9 +32,25 @@ public class MainActivity extends Activity {
         List<CustomerEntity> customerList = customerController.getListAll();
         ListAdapterItem listaAdapterItem = new ListAdapterItem(this, customerList);
 
-        ListView listView = (ListView) findViewById(R.id.listViewCustumers);
+        final ListView listView = (ListView) findViewById(R.id.listViewCustumers);
 
         listView.setAdapter(listaAdapterItem);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CustomerEntity customerEntity = (CustomerEntity) listView.getItemAtPosition(position);
+
+                Log.d("Cliclou", " " + customerEntity.getName());
+
+                Intent intent = new Intent(MainActivity.this, DetailsCustomerActivity.class);
+                intent.putExtra("id", customerEntity.getId());
+                intent.putExtra("nome", customerEntity.getName());
+                intent.putExtra("documento", customerEntity.getCpfCnpj());
+                startActivity(intent);
+
+            }
+        });
 
     }
 
