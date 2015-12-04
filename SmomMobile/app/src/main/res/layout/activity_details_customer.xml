@@ -69,14 +69,14 @@
         android:typeface="serif" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detalhes Financeiro"
+        android:text="Relatório financeiro"
         android:id="@+id/btFinanceiro"
         android:paddingLeft="10dp"
         android:layout_alignTop="@+id/btVoltar"
         android:layout_toRightOf="@+id/btVoltar"
         android:layout_toEndOf="@+id/btVoltar"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:onClick="details"/>
 </RelativeLayout>

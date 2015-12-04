@@ -40,9 +40,6 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 CustomerEntity customerEntity = (CustomerEntity) listView.getItemAtPosition(position);
-
-                Log.d("Cliclou", " " + customerEntity.getName());
-
                 Intent intent = new Intent(MainActivity.this, DetailsCustomerActivity.class);
                 intent.putExtra("id", customerEntity.getId());
                 intent.putExtra("nome", customerEntity.getName());

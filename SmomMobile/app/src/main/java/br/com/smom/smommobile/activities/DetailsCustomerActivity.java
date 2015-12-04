@@ -1,5 +1,6 @@
 package br.com.smom.smommobile.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,8 @@ import br.com.smom.smommobile.R;
 
 public class DetailsCustomerActivity extends AppCompatActivity {
 
+    private int customerId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,13 +20,18 @@ public class DetailsCustomerActivity extends AppCompatActivity {
         TextView nome = (TextView) findViewById(R.id.txNomeCusomer);
         TextView documento = (TextView) findViewById(R.id.txDocumentoCustomer);
 
-        String id = getIntent().getExtras().getString("id");
-
+        customerId = getIntent().getExtras().getInt("id");
         nome.setText(getIntent().getExtras().getString("nome"));
         documento.setText(getIntent().getExtras().getString("documento"));
     }
 
-    public void voltar(View view){
+    public void voltar(View view) {
         finish();
+    }
+
+    public void details(View view) {
+        Intent intent = new Intent(DetailsCustomerActivity.this, ReleaseActivity.class);
+        intent.putExtra("id", customerId);
+        startActivity(intent);
     }
 }
